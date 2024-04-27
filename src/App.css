@@ -1,39 +1,282 @@
-body{
-  display: flex;
+.App {
+  text-align: center;
 }
-div{
-  font-size: 18px;
+/* My styles */
+h1{
+  font-size: 37px;
+  font-weight: 400;
+}
+p{
+  font-size: 30px;
 }
 img{
   width: 30px;
-  border-radius: 20px;
+  margin-right: 10px;
 }
-button{
-  margin: 10px;
-  font-size: 15px;
-  border-radius: 4px;
+
+.container-weather {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center; /* Центрируем карточки на горизонтальной оси */
 }
-input{
-  width: 250px;
-  height: 30px;
+.box-weather{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  width: 550px;
+  margin: 30px; /* Отступы между карточками */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  font-size: 30px;
+  background-color:rgba(255, 255, 255, 0.794);
+  transition: 0.3s;
+}
+.card:hover{
+  box-shadow: 2px 5px 25px -3px rgba(180,180,180,0.25);;
+}
+.card p{
+  margin-bottom: 7px;
+}
+/* .box-parametrs{
+  display: flex;
+  flex-wrap: wrap;
+} */
+.box-parameter{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.box-parameter div{
+  margin:27px;
+  margin-bottom:10px;
+  margin-top: 10px;
+  width: 40%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 
-.message{
+
+.icon-weather{
+  width: 128px;
+  height: 128px;
+}
+.temp{
+  color:#1f74ed;
+  font-size: 32px;
+}
+
+.search{
   display: flex;
   align-items: center;
-  /* justify-content: center; */
-  margin: 10px;
-  border: 2px solid black;
+  justify-content: center;
+  width: 100%;
 }
 
-.message_text{
-  font-size: 18px;
+.input-search{
+  margin-top: 10px;
+  width: 580px;
+  height: 50px;
+  border: 2px solid #5F5FE3;
+  background-color:white;
+  border-radius: 5px;
+  font-size: 30px;
+  padding-left: 5px;
+
+}
+.error{
+  padding-top: 240px;
+  padding-bottom: 240px;
+  font-size: 30px;
+  text-align:center;
+}
+.btn-search{
+  width: 140px;
+  height: 40px;
+  border: 2px solid #5F5FE3;
+  border-radius: 5px;
+  background-color: #4A66E6;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 25px;
+  display: inline-block; /* Делаем кнопку блочным элементом, чтобы можно было управлять ее размерами */
+  position: relative; /* Устанавливаем позиционирование кнопки как относительное */
+  padding-right: 10px;
+  transition: all 1s ease;
+  
+}
+.btn-search img{
+  position: absolute; /* Устанавливаем позиционирование изображения как абсолютное */
+  top: 50%; /* Размещаем изображение по вертикали на середине кнопки */
+  transform: translateY(-50%); /* Корректируем позицию изображения, чтобы оно было выровнено по вертикали */
+}
+.btn-search:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.05); /* Увеличение на 5% */
+}
+.btn-location{
+  width: 45px;
+  height: 45px;
+  background-color: #4A66E6;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.btn-location img{
+  padding-left: 7.5px;
 }
 
-.button{
-  width: 200px;
-  height: 200px;
-  border: 2px solid black;
- text-align: center;
+
+
+
+@media (max-width: 950px) {
+  .container-weather{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
+@media (max-width:740px) {
+  .input-search{
+    width: 400px;
+    height: 50px;
+  }
+}
+@media (max-width:640px) {
+  .btn-search{
+    margin-top: 10px;
+  }
+  .card{
+    width: 350px;
+    margin: 10px;
+  }
+  .box-parameter div{
+    font-size: 20px;
+    /* border: 2px solid #4A66E6;
+    border-radius: 10px;*/
+    /* если нужны будут границы то разкоментируй, но тогда уменьше margin хотя бы до 10px */
+    margin: 16px;
+    text-align:center;
+  }
+}
+
+
+@media (max-width:420px) {
+  .input-search{
+    width: 320px;
+    font-size: 20px;
+  }
+  .card{
+    width: 320px;
+  }
+  /* .btn-location{
+    margin-top: 60px;
+  } */
+}
+
+@media (max-width:370px) {
+  .input-search{
+    width: 270px;
+    font-size: 20px;
+  }
+  .card{
+    width: 250px;
+  }
+  .box-parameter div{
+    margin: 10px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width:300px) {
+  .input-search{
+    width: 200px;
+    font-size: 15px;
+  }
+  .card{
+    width: 180px;
+  }
+  .box-parameter div{
+    margin: 9px;
+    font-size: 11px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* styles of Bogdan */
+/* button{
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 0;
+  margin: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+button:hover{
+  transform: scale(1.1);
+}
+h1{
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+.card{
+  width: 250px;
+  border: 1px lightgray solid;
+  border-radius: 10px;
+  margin: 15px;
+  padding-bottom: 10px;
+}
+
+.card >img{
+  width: 100%;
+  border-radius: 10px;
+
+}
+form{
+  font-size: 30px;
+}
+input{
+  margin: 15px;
+  padding: 15px;
+  font-size: 23px;
+}
+label{
+  display: block;
+} */
+/* .box_posts{
+  max-width: 50%;
+  margin: 25px auto;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  background-color: darkblue;
+} */
