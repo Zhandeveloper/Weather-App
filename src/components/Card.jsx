@@ -5,7 +5,10 @@ import feels_img from '../img/feels.png'
 import rainfall_img from '../img/rainfall.png'
 import cloudy_img from '../img/cloudy.png'
 import clock_img from '../img/clock.png'
-
+import visibility_img from '../img/visibility.png'
+import pressure_img from '../img/pressure.png'
+import wind_gust_img from '../img/wind_gust.png'
+import country_img from '../img/country.png'
 function Card({ city }) {
   const [weather, setWeather] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
@@ -61,8 +64,12 @@ function Card({ city }) {
             <div>  <img src={cloudy_img} alt='img-weather'/> {`Облачность - ${weather.current.cloud}%`}</div>
             <div>  <img src={wind_img} alt='img-weather'/> {`Ветер - ${weather.current.wind_kph} км/ч`}</div>
             <div>  <img src={humidity_img} alt='img-weather'/> {`Влажность - ${weather.current.humidity}%`}</div>
-            <div><img src={rainfall_img} alt='img-weather'/> {`Осадки - ${weather.current.precip_mm}%`}</div>
+            <div><img src={rainfall_img} alt='img-weather'/> {`Осадки - ${weather.current.precip_mm}мм`}</div>
             <div>  <img src={feels_img} alt='img-weather'/> {`Ощущается - ${weather.current.temp_c}°C`}</div>
+            <div>  <img src={visibility_img} alt='img-weather'/> {`Видимость - ${weather.current.vis_km}км`}</div>
+            <div>  <img src={pressure_img} alt='img-weather'/> {`Давление - ${weather.current.pressure_in}дюйм.`}</div>
+            <div>  <img src={wind_gust_img} alt='img-weather'/> {`Порывы ветра - ${weather.current.gust_kph}км/ч`}</div>
+            <div>  <img src={country_img} alt='country-img'/> {`Страна - ${weather.location.country}`}</div>
           </div>
         </>
       ) : city ? (

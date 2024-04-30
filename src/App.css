@@ -1,5 +1,11 @@
+body {
+  
+}
 .App {
   text-align: center;
+  background-size: cover; /* Масштабирование фотографии на всю область фона */
+  background-position: center; /* Позиционирование фотографии по центру */
+  /* transition: all 1s ease; */
 }
 /* My styles */
 h1{
@@ -40,10 +46,7 @@ img{
 .card p{
   margin-bottom: 7px;
 }
-/* .box-parametrs{
-  display: flex;
-  flex-wrap: wrap;
-} */
+
 .box-parameter{
   display: flex;
   flex-wrap: wrap;
@@ -60,8 +63,6 @@ img{
   justify-content: center;
 }
 
-
-
 .icon-weather{
   width: 128px;
   height: 128px;
@@ -72,9 +73,8 @@ img{
 }
 
 .search{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display:block;
+  justify-content:center;
   width: 100%;
 }
 
@@ -87,6 +87,7 @@ img{
   border-radius: 5px;
   font-size: 30px;
   padding-left: 5px;
+  transition: all  0.3s ease;
 
 }
 .error{
@@ -126,19 +127,75 @@ img{
   background-color: #4A66E6;
   color: white;
   border: 0px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
+  transition: all 1s ease;
+  margin-top:20px;
   margin-left: 20px;
-  margin-top: 10px;
 }
 .btn-location img{
   padding-left: 7.5px;
 }
+.btn-location:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.05); /* Увеличение на 5% */
+}
+.btn-changeTheme{
+  width: 45px;
+  height: 45px;
+  background-color: #4A66E6;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 1s ease;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding-left: 7.5px;
+}
+
+.btn-changeTheme:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.05); /* Увеличение на 5% */
+}
+.tg{
+  text-decoration: none;
+  color:black;
+  font-size: 20px;
+  transition: font-size 0.5s ease, color 0.5s ease;
+  cursor: pointer;
+}
+.tg:hover{
+  color: #1f74ed; /* Цвет текста, например, золотой (#ffd700) */
+  font-size:22px;
+  text-shadow: 0 0 3px #1f74ed;
+}
+
+/* Dark theme styles  */
+.dark-theme {
+  background-color: #000;
+  color: #fff;
+}
+.dark-theme .input-search{
+  background-color: rgba(12, 7, 7, 0.9);
+}
+.dark-theme .card{
+  background-color:rgba(12, 7, 7, 0.794); 
+}
+.dark-theme .tg{
+  color: white;
+}
+.dark-theme .tg:hover{
+  color:#ffd700; /* Цвет текста, например, золотой (#ffd700) */
+  text-shadow: 0 0 5px #ffd700;
+  font-size:22px;
+}
 
 
 
-
+/* Media requests  */
 @media (max-width: 950px) {
   .container-weather{
     flex-direction: column;
@@ -211,72 +268,3 @@ img{
     font-size: 11px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* styles of Bogdan */
-/* button{
-  padding: 15px;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 0;
-  margin: 20px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-button:hover{
-  transform: scale(1.1);
-}
-h1{
-  font-size: 50px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
-.cards{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  
-}
-.card{
-  width: 250px;
-  border: 1px lightgray solid;
-  border-radius: 10px;
-  margin: 15px;
-  padding-bottom: 10px;
-}
-
-.card >img{
-  width: 100%;
-  border-radius: 10px;
-
-}
-form{
-  font-size: 30px;
-}
-input{
-  margin: 15px;
-  padding: 15px;
-  font-size: 23px;
-}
-label{
-  display: block;
-} */
-/* .box_posts{
-  max-width: 50%;
-  margin: 25px auto;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  background-color: darkblue;
-} */

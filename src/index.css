@@ -4,12 +4,6 @@
   font-family: "Roboto", sans-serif;
 }
 /* #112d49  - background-color of Bogdan */
-body {
-  background-image: url('./img/sky.jpg'); /* Путь к вашей фотографии */
-  background-size: cover; /* Масштабирование фотографии на всю область фона */
-  background-position: center; /* Позиционирование фотографии по центру */
-  
-}
 form, input {
   margin: 0;
   padding: 0;
