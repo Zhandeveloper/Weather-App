@@ -12,6 +12,7 @@ import country_img from '../img/country.png'
 import months from '../tools/months';
 import temp_day_img from '../img/temperature-day.png'
 import temp_night_img from '../img/temperature-night.png'
+import getDayOfWeek from '../tools/getDayOfWeek';
 
 function Card({ city }) {
   const [weather, setWeather] = useState(null);
@@ -83,7 +84,7 @@ function Card({ city }) {
               <div className='forecast-container'>
                 {weather.forecast.forecastday.map((day, index) => (
                   <div key={index} className='forecast-day'>
-                    <div>{new Date(day.date).getDate()} {months[new Date(day.date).getMonth()]}</div>
+                    <div>{getDayOfWeek(day.date)}, {new Date(day.date).getDate()} {months[new Date(day.date).getMonth()]}</div>
                     <div><img src={day.day.condition.icon} alt={day.day.condition.text} className='forecast-img' /></div>
                     <div className='forecast-condition'>{day.day.condition.text}</div>
                     <div>
