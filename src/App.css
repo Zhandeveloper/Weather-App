@@ -1,6 +1,4 @@
-body {
-  
-}
+
 .App {
   text-align: center;
   background-size: cover; /* Масштабирование фотографии на всю область фона */
@@ -41,7 +39,7 @@ img{
   transition: 0.3s;
 }
 .card:hover{
-  box-shadow: 2px 5px 25px -3px rgba(180,180,180,0.25);;
+  box-shadow: 2px 5px 25px -3px rgba(180,180,180,0.25);
 }
 .card p{
   margin-bottom: 7px;
@@ -172,7 +170,56 @@ img{
   font-size:22px;
   text-shadow: 0 0 3px #1f74ed;
 }
+/* styles for 7 days weather  */
+.btn-forecast{
+  width: 70%;
+  height: 35px;
+  margin-top: 10px;
+  border: 0px;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color:#4A66E6;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.btn-forecast:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Подсветка */
+  transform: scale(1.05); /* Увеличение на 5% */
+}
+.forecast-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin-top: 20px;
+}
 
+.forecast-day{
+  display: flex;
+  flex-wrap: wrap;
+  width: 48%;
+  justify-content: left;
+  align-items:left;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  font-size: 30px;
+  background-color:rgba(255, 255, 255, 0.2);
+  transition: 0.3s;
+  margin: 5px;
+}
+.forecast-day:hover{
+  box-shadow: 2px 5px 25px -3px rgba(180,180,180,0.25);
+}
+.forecast-day div{
+  font-size: 23px;
+  margin: 5px;
+}
+.forecast-img{
+  width: 70px;
+}
+.forecast-condition{
+  width: 100%;
+}
 /* Dark theme styles  */
 .dark-theme {
   background-color: #000;
@@ -208,6 +255,7 @@ img{
     width: 400px;
     height: 50px;
   }
+  
 }
 @media (max-width:640px) {
   .btn-search{
@@ -225,6 +273,15 @@ img{
     margin: 16px;
     text-align:center;
   }
+  .forecast-day{
+    width:46%;
+    flex-direction: column;
+  }
+  .forecast-day div{
+    font-size: 20px;
+    margin: 2px;
+  }
+  
 }
 
 
@@ -236,9 +293,9 @@ img{
   .card{
     width: 320px;
   }
-  /* .btn-location{
-    margin-top: 60px;
-  } */
+  .forecast-day div{
+    font-size: 18px;
+  }
 }
 
 @media (max-width:370px) {
@@ -266,5 +323,9 @@ img{
   .box-parameter div{
     margin: 9px;
     font-size: 11px;
+  }
+  .forecast-day div{
+    width: 80%;
+    font-size: 14px;
   }
 }

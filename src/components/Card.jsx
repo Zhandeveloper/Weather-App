@@ -9,9 +9,14 @@ import visibility_img from '../img/visibility.png'
 import pressure_img from '../img/pressure.png'
 import wind_gust_img from '../img/wind_gust.png'
 import country_img from '../img/country.png'
+import months from '../tools/months';
+import temp_day_img from '../img/temperature-day.png'
+import temp_night_img from '../img/temperature-night.png'
+
 function Card({ city }) {
   const [weather, setWeather] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
+  const [showForecast, setShowForecast] = useState(false);
 
   useEffect(() => {
     const fetchData = () => {
@@ -20,7 +25,7 @@ function Card({ city }) {
         return;
       }
 
-      fetch(`https://api.weatherapi.com/v1/current.json?key=7f8a480c59e2499eb0e123435242404&q=${city}&aqi=no&lang=ru`)
+      fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f8a480c59e2499eb0e123435242404&q=${city}&days=7&aqi=no&alerts=no&lang=ru`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Город не найден');
@@ -46,7 +51,9 @@ function Card({ city }) {
     };
   }, [city]);
 
-  console.log('Weather:', weather);
+  const handleForecastClick = () => {
+    setShowForecast(!showForecast);
+  };
 
   return (
     <div className='card'>
@@ -71,6 +78,28 @@ function Card({ city }) {
             <div>  <img src={wind_gust_img} alt='img-weather'/> {`Порывы ветра - ${weather.current.gust_kph}км/ч`}</div>
             <div>  <img src={country_img} alt='country-img'/> {`Страна - ${weather.location.country}`}</div>
           </div>
+          <button onClick={handleForecastClick} className='btn-forecast'>Погода на 7 дней</button>
+          {showForecast && (
+              <div className='forecast-container'>
+                {weather.forecast.forecastday.map((day, index) => (
+                  <div key={index} className='forecast-day'>
+                    <div>{new Date(day.date).getDate()} {months[new Date(day.date).getMonth()]}</div>
+                    <div><img src={day.day.condition.icon} alt={day.day.condition.text} className='forecast-img' /></div>
+                    <div className='forecast-condition'>{day.day.condition.text}</div>
+                    <div>
+                      <img src={temp_day_img} alt='weather-icon' />
+                      {Math.floor(day.day.maxtemp_c)}°C
+                    </div>
+                    <div>
+                      <img src={temp_night_img} alt='weather-icon' />
+                      {Math.floor(day.day.mintemp_c)}°C
+                    </div>
+                    <div>Вероятность дождя: {day.day.daily_chance_of_rain}%</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
         </>
       ) : city ? (
         <p>Загрузка...</p>
@@ -82,6 +111,8 @@ function Card({ city }) {
 }
 
 export default Card;
+
+
 
 
 

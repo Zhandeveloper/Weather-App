@@ -70,5 +70,5 @@ function App() {
     </div>
   );
 }
-
+// fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f8a480c59e2499eb0e123435242404&q=${city}&days=7&aqi=no&alerts=no&lang=ru`)
 export default App;
